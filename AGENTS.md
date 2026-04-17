@@ -82,4 +82,4 @@ Code/
 - Todos los repos activos usan SSH: `git@github.com:genilsuarez/<repo>.git`
 - GitHub Pages se configura en cada repo bajo Settings → Pages
 - No tocar los repos de `gsphome`, son solo backup
-- El bot de Telegram (`bot v1.0/`) es local, no está en GitHub — contiene `.env` con tokens sensibles
+- El bot de Telegram vive en `English6/bot/` — excluido del repo vía `.gitignore` (contiene `.env` con tokens sensibles, no se sube a GitHub)
