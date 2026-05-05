@@ -1,5 +1,191 @@
 import { useState } from "react";
 
+// ─── SDD + Harness Engineer page ───────────────────────────────────────────
+
+function RoleCard({ label, title, subtitle, borderColor, labelColor }) {
+  return (
+    <div style={{
+      flex: 1, border: `1px solid ${borderColor}`,
+      borderTop: `3px solid ${borderColor}`,
+      borderRadius: 8, padding: "12px 14px",
+      background: "rgba(0,0,0,0.25)",
+    }}>
+      <div style={{ fontSize: 9, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 1.5, color: labelColor, fontWeight: 700, marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "#f3f4f6", marginBottom: 2 }}>{title}</div>
+      <div style={{ fontSize: 11, color: "#6b7280" }}>{subtitle}</div>
+    </div>
+  );
+}
+
+function ProblemBadge({ children }) {
+  return (
+    <span style={{
+      fontSize: 11, padding: "4px 10px", borderRadius: 4,
+      background: "rgba(239,68,68,0.1)", color: "#fca5a5",
+      border: "1px solid rgba(239,68,68,0.2)", whiteSpace: "nowrap",
+    }}>{children}</span>
+  );
+}
+
+function DetailCard({ label, title, items, borderColor, labelColor }) {
+  return (
+    <div style={{
+      flex: 1, border: `1px solid ${borderColor}`,
+      borderRadius: 8, padding: "14px 16px",
+      background: "rgba(0,0,0,0.2)",
+    }}>
+      <div style={{ fontSize: 9, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 1.5, color: labelColor, fontWeight: 700, marginBottom: 6 }}>{label}</div>
+      <div style={{ fontSize: 14, fontWeight: 700, color: "#f3f4f6", marginBottom: 10 }}>{title}</div>
+      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+        {items.map((item, i) => (
+          <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 7, fontSize: 12, color: "#9ca3af", marginBottom: 5 }}>
+            <span style={{ color: labelColor, fontSize: 11, marginTop: 1, flexShrink: 0 }}>•</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FlowStep({ label, title, color, first }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+      {!first && (
+        <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth={2}>
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      )}
+      <div style={{
+        border: `1px solid rgba(255,255,255,0.12)`,
+        borderRadius: 8, padding: "8px 14px", textAlign: "center",
+        background: "rgba(0,0,0,0.3)",
+      }}>
+        <div style={{ fontSize: 9, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 1.2, color: "#6b7280", marginBottom: 3, textTransform: "uppercase" }}>{label}</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color }}>{title}</div>
+      </div>
+    </div>
+  );
+}
+
+function SDDHarnessPage() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+      {/* Roles */}
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+        <RoleCard label="ROL 1" title="SDD controla la entrada" subtitle="El contrato antes del código" borderColor="rgba(96,165,250,0.4)" labelColor="#60a5fa" />
+        <RoleCard label="ROL 2" title="Harness controla la salida" subtitle="El arnés antes del deploy" borderColor="rgba(52,211,153,0.4)" labelColor="#34d399" />
+      </div>
+
+      {/* El problema */}
+      <div style={{
+        border: "1px solid rgba(239,68,68,0.3)",
+        borderLeft: "3px solid #ef4444",
+        borderRadius: "0 8px 8px 0",
+        padding: "10px 14px",
+        background: "rgba(239,68,68,0.05)",
+        display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center",
+      }}>
+        <span style={{ fontSize: 12, fontWeight: 700, color: "#f87171", flexShrink: 0 }}>⚠ El problema</span>
+        <ProblemBadge>La IA escala errores, no solo velocidad</ProblemBadge>
+        <ProblemBadge>Prompts ≠ contratos</ProblemBadge>
+        <ProblemBadge>Deuda técnica acelerada</ProblemBadge>
+      </div>
+
+      {/* Detail cards */}
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+        <DetailCard
+          label="SPEC-DRIVEN DEVELOPMENT"
+          title="Contrato antes del código"
+          borderColor="rgba(96,165,250,0.3)"
+          labelColor="#60a5fa"
+          items={[
+            "Funcionalidad clara y acotada",
+            "Casos de uso y edge cases",
+            "Pre y postcondiciones",
+            "Comportamiento ante errores",
+          ]}
+        />
+        <DetailCard
+          label="HARNESS ENGINEER"
+          title="Arnés antes del deploy"
+          borderColor="rgba(52,211,153,0.3)"
+          labelColor="#34d399"
+          items={[
+            "Tests alineados a la spec",
+            "Mocks y simulación",
+            "Pipelines automáticos",
+            "Criterios ejecutables, no narrativos",
+          ]}
+        />
+      </div>
+
+      {/* Flow */}
+      <div style={{
+        border: "1px solid rgba(59,130,246,0.2)",
+        borderRadius: 8, padding: "14px 16px",
+        background: "rgba(0,0,0,0.2)",
+      }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 4, marginBottom: 10 }}>
+          <FlowStep label="ENTRADA" title="Spec" color="#60a5fa" first />
+          <FlowStep label="VALIDACIÓN" title="Harness" color="#34d399" />
+          <FlowStep label="GENERACIÓN" title="IA" color="#c084fc" />
+          <FlowStep label="SALIDA" title="Tests" color="#34d399" />
+        </div>
+        <p style={{ textAlign: "center", fontSize: 11, color: "#6b7280", margin: 0, fontFamily: "'JetBrains Mono',monospace" }}>
+          Loop corto · <span style={{ color: "#60a5fa", fontWeight: 600 }}>feedback a la spec</span> · no waterfall
+        </p>
+      </div>
+
+      {/* Bottom callout */}
+      <div style={{
+        border: "1px solid rgba(59,130,246,0.2)",
+        borderRadius: 8, padding: "14px 16px",
+        background: "rgba(0,0,0,0.2)",
+        display: "flex", gap: 16, flexWrap: "wrap", alignItems: "flex-start",
+      }}>
+        <div style={{ flex: 1, minWidth: 200 }}>
+          <p style={{ fontSize: 11, color: "#6b7280", margin: "0 0 4px" }}>La ventaja no es velocidad de generación</p>
+          <p style={{ fontSize: 13, fontWeight: 700, margin: 0, lineHeight: 1.4 }}>
+            <span style={{ color: "#60a5fa" }}>Calidad del contexto en la entrada</span>
+            <br />
+            <span style={{ color: "#9ca3af" }}>+</span>{" "}
+            <span style={{ color: "#34d399" }}>robustez del arnés en la salida</span>
+          </p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {[
+            { icon: "📋", q: "¿Tienes", highlight: "spec", rest: "antes de promptear?" },
+            { icon: "🔧", q: "¿Tienes", highlight: "harness", rest: "antes de deployar?" },
+          ].map(({ icon, q, highlight, rest }) => (
+            <div key={highlight} style={{
+              display: "flex", alignItems: "center", gap: 8,
+              border: "1px solid rgba(59,130,246,0.2)", borderRadius: 6,
+              padding: "7px 12px", background: "rgba(0,0,0,0.3)",
+              fontSize: 12, color: "#9ca3af",
+            }}>
+              <span>{icon}</span>
+              <span>{q}</span>
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#f3f4f6" }}>{highlight}</span>
+              <span>{rest}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div style={{ textAlign: "center", marginTop: 4, paddingTop: 12, borderTop: "1px solid rgba(59,130,246,0.15)", fontSize: 12 }}>
+        <span style={{ color: "#4b5563" }}>Guía por </span>
+        <a href="https://www.linkedin.com/in/genil-alejandro-suarez/" target="_blank" rel="noopener"
+          style={{ color: "#60a5fa", textDecoration: "none", fontWeight: 600 }}>Genil Suárez</a>
+      </div>
+    </div>
+  );
+}
+
+// ─── Context Engineering data ──────────────────────────────────────────────
+
 const data = {
   tree: [
     { name: "CLAUDE.md", type: "file", indent: 0, color: "blue", note: "Siempre cargado — identidad, restricciones, reglas globales" },
@@ -314,8 +500,25 @@ function CodeBlock({ children }) {
   );
 }
 
+const pages = [
+  {
+    key: "context",
+    label: "Context Engineering",
+    subtitle: "Las primitivas, sus diferencias, y cuándo usar cada una.",
+    tags: ["CLAUDE.md", "Skills", "Hooks", "MCP", "Agents"],
+  },
+  {
+    key: "sdd",
+    label: "SDD + Harness Engineer",
+    subtitle: "La arquitectura real del desarrollo con IA.",
+    tags: ["Spec", "Harness", "IA", "Tests"],
+  },
+];
+
 export default function App() {
+  const [activePage, setActivePage] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
+  const page = pages[activePage];
 
   return (
     <>
@@ -342,35 +545,44 @@ export default function App() {
             position: "sticky", top: 0, zIndex: 10,
             background: "linear-gradient(135deg, #1e3a5f 0%, #1e1b4b 100%)",
             borderBottom: "1px solid rgba(59,130,246,0.3)",
-            padding: "12px 20px",
             boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
-            display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
           }}>
-            <div>
-              <h1 style={{
-                fontSize: "clamp(18px, 3vw, 26px)", fontWeight: 800, lineHeight: 1.1,
-                letterSpacing: -1, margin: 0,
-                background: "linear-gradient(135deg, #e8e8f0 0%, #60a5fa 50%, #a78bfa 100%)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-              }}>Context Engineering</h1>
-              <p style={{ fontSize: 11, color: "#60a5fa", margin: "2px 0 0", fontWeight: 500 }}>
-                Claude Code · Guía de referencia
-              </p>
-              <p style={{ fontSize: 10, color: "#4b5563", margin: "1px 0 0" }}>
-                Las primitivas, sus diferencias, y cuándo usar cada una.
-              </p>
-            </div>
+            {/* Page tabs */}
             <div style={{
-              display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "flex-end",
+              display: "flex", borderBottom: "1px solid rgba(59,130,246,0.2)",
+              background: "rgba(0,0,0,0.2)",
             }}>
-              {["CLAUDE.md","Skills","Hooks","MCP","Agents"].map(label => (
-                <span key={label} style={{
-                  fontSize: 9, fontWeight: 700, padding: "2px 7px", borderRadius: 9999,
-                  background: "rgba(59,130,246,0.12)", color: "#60a5fa",
-                  border: "1px solid rgba(59,130,246,0.25)",
-                  fontFamily: "'JetBrains Mono',monospace", letterSpacing: 0.5,
-                }}>{label}</span>
+              {pages.map((p, i) => (
+                <button key={p.key} onClick={() => setActivePage(i)} style={{
+                  padding: "9px 18px", background: "transparent", border: "none",
+                  borderBottom: `2px solid ${activePage === i ? "#3b82f6" : "transparent"}`,
+                  color: activePage === i ? "#60a5fa" : "#6b7280",
+                  fontFamily: "'Outfit',system-ui,sans-serif", fontSize: 12, fontWeight: 600,
+                  cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s",
+                }}>{p.label}</button>
               ))}
+            </div>
+            {/* Title row */}
+            <div style={{ padding: "10px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+              <div>
+                <h1 style={{
+                  fontSize: "clamp(16px, 2.5vw, 22px)", fontWeight: 800, lineHeight: 1.1,
+                  letterSpacing: -0.8, margin: 0,
+                  background: "linear-gradient(135deg, #e8e8f0 0%, #60a5fa 50%, #a78bfa 100%)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                }}>{page.label}</h1>
+                <p style={{ fontSize: 10, color: "#4b5563", margin: "2px 0 0" }}>{page.subtitle}</p>
+              </div>
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "flex-end" }}>
+                {page.tags.map(label => (
+                  <span key={label} style={{
+                    fontSize: 9, fontWeight: 700, padding: "2px 7px", borderRadius: 9999,
+                    background: "rgba(59,130,246,0.12)", color: "#60a5fa",
+                    border: "1px solid rgba(59,130,246,0.25)",
+                    fontFamily: "'JetBrains Mono',monospace", letterSpacing: 0.5,
+                  }}>{label}</span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -379,6 +591,12 @@ export default function App() {
             flex: 1, overflowY: "auto", padding: "14px 16px",
             scrollbarWidth: "thin", scrollbarColor: "rgba(59,130,246,0.3) transparent",
           }}>
+
+            {/* SDD + Harness page */}
+            {activePage === 1 && <SDDHarnessPage />}
+
+            {/* Context Engineering page */}
+            {activePage === 0 && <>
 
             {/* Estructura */}
             <Accordion icon="📁" iconBg="#78350f" iconColor="#fbbf24" title="Estructura del proyecto" subtitle="Dónde vive cada archivo y qué hace">
@@ -516,6 +734,8 @@ export default function App() {
               <a href="https://www.linkedin.com/in/genil-alejandro-suarez/" target="_blank" rel="noopener"
                 style={{ color: "#60a5fa", textDecoration: "none", fontWeight: 600 }}>Genil Suárez</a>
             </div>
+
+            </>}{/* end Context Engineering page */}
 
           </div>{/* end scrollable */}
         </div>{/* end card */}
