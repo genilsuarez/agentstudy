@@ -17,6 +17,13 @@ export const pages = [
     tags: ["Spec", "Harness", "IA", "Tests"],
     icon: "🔧",
   },
+  {
+    key: "glossary",
+    label: "Glosario Agéntico",
+    subtitle: "12 términos esenciales de IA agéntica que debes conocer.",
+    tags: ["MCP", "Loops", "Tools", "Orquestador", "Memoria"],
+    icon: "📖",
+  },
 ];
 
 export const tree = [

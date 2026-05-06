@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "./components/Navigation";
 import ContextEngineeringPage from "./pages/ContextEngineeringPage";
 import SDDHarnessPage from "./pages/SDDHarnessPage";
+import AgenticGlossaryPage from "./pages/AgenticGlossaryPage";
 import { pages } from "./data/content";
 import { palette, fonts, slideDownKeyframes } from "./styles/tokens";
 
@@ -76,6 +77,7 @@ export default function App() {
           }}>
             {activePage === 0 && <ContextEngineeringPage />}
             {activePage === 1 && <SDDHarnessPage />}
+            {activePage === 2 && <AgenticGlossaryPage />}
           </div>
 
         </div>{/* end card */}
