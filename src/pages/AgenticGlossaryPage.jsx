@@ -174,15 +174,13 @@ export default function AgenticGlossaryPage() {
         {terms.map(term => <TermCard key={term.num} {...term} />)}
       </div>
 
-      {/* Attribution */}
+      {/* Footer */}
       <div style={{
         textAlign: "center", marginTop: 8, paddingTop: 12,
-        borderTop: `1px solid ${palette.borderLight}`, fontSize: 11,
+        borderTop: `1px solid ${palette.borderLight}`, fontSize: 12,
         color: palette.textDim,
       }}>
-        <span>Basado en </span>
-        <span style={{ color: palette.textSecondary, fontWeight: 600 }}>"12 Must-Know Agentic AI Terms"</span>
-        <span> por Brij Kishore Pandey · Adaptado al español por </span>
+        <span>Guía por </span>
         <a href="https://www.linkedin.com/in/genil-alejandro-suarez/" target="_blank" rel="noopener noreferrer"
           style={{ color: palette.accent, textDecoration: "none", fontWeight: 600 }}>Genil Suárez</a>
       </div>
