@@ -31,6 +31,13 @@ export const pages = [
     tags: ["Plan", "Subagentes", "Verificación", "Elegancia"],
     icon: "⚙️",
   },
+  {
+    key: "token-tax",
+    label: "Token Tax por Idioma",
+    subtitle: "El impuesto oculto: por qué hablar español te sale caro.",
+    tags: ["FinOps", "LLMOps", "Tokenizador", "Costos"],
+    icon: "💰",
+  },
 ];
 
 export const tree = [
