@@ -24,6 +24,13 @@ export const pages = [
     tags: ["MCP", "Loops", "Tools", "Orquestador", "Memoria"],
     icon: "📖",
   },
+  {
+    key: "workflow",
+    label: "Workflow & Reglas",
+    subtitle: "Cómo orquestar agentes de IA con disciplina de ingeniería.",
+    tags: ["Plan", "Subagentes", "Verificación", "Elegancia"],
+    icon: "⚙️",
+  },
 ];
 
 export const tree = [
