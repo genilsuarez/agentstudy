@@ -39,7 +39,7 @@ const sections = [
         color: "#c084fc",
         subtitle: "Aprender de cada corrección",
         points: [
-          "Después de CUALQUIER corrección del usuario: actualizar lessons.md con el patrón",
+          "Después de CUALQUIER corrección del usuario: actualizar memory.md con el patrón",
           "Escribir reglas para ti mismo que prevengan el mismo error",
           "Iterar sin piedad sobre estas lecciones hasta que la tasa de error baje",
           "Revisar lecciones al inicio de sesión para el proyecto relevante",
@@ -98,7 +98,7 @@ const sections = [
       { num: 3, label: "Trackear progreso", desc: "Marcar items completos conforme avanzas", color: "#c084fc" },
       { num: 4, label: "Explicar cambios", desc: "Resumen de alto nivel en cada paso", color: "#fbbf24" },
       { num: 5, label: "Documentar resultados", desc: "Agregar sección de review al todo.md", color: "#f87171" },
-      { num: 6, label: "Capturar lecciones", desc: "Actualizar lessons.md después de correcciones", color: "#60a5fa" },
+      { num: 6, label: "Capturar lecciones", desc: "Actualizar memory.md después de correcciones", color: "#60a5fa" },
     ],
   },
   {
