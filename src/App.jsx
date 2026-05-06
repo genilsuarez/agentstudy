@@ -15,15 +15,17 @@ export default function App() {
     <>
       <style>{slideDownKeyframes}</style>
 
-      {/* Outer wrapper — full viewport */}
+      {/* Outer wrapper — full viewport, centers the card */}
       <div style={{
-        minHeight: "100vh", display: "flex", flexDirection: "column",
-        alignItems: "center", padding: "16px 12px 32px",
+        height: "100vh", display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center",
+        padding: "16px 12px",
       }}>
 
-        {/* Card container */}
+        {/* Card container — fixed height, internal scroll */}
         <div style={{
           width: "100%", maxWidth: 860,
+          height: "calc(100vh - 32px)",
           background: "linear-gradient(135deg, #111827 0%, #0f172a 100%)",
           border: `1px solid ${palette.border}`,
           borderRadius: 12,
@@ -31,9 +33,9 @@ export default function App() {
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
 
-          {/* Sticky header */}
+          {/* Fixed header — never scrolls */}
           <div style={{
-            position: "sticky", top: 0, zIndex: 10,
+            flexShrink: 0,
             background: "linear-gradient(135deg, #1e3a5f 0%, #1e1b4b 100%)",
             borderBottom: `1px solid ${palette.borderStrong}`,
             boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
@@ -71,7 +73,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Scrollable content */}
+          {/* Scrollable content — only this area scrolls */}
           <div style={{
             flex: 1, overflowY: "auto", padding: "14px 16px",
             scrollbarWidth: "thin", scrollbarColor: "rgba(59,130,246,0.3) transparent",
