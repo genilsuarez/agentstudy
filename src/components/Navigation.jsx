@@ -81,11 +81,32 @@ export default function Navigation({ activePage, onPageChange }) {
         >
           {/* Header */}
           <div style={{ padding: "0 20px 16px", borderBottom: `1px solid ${palette.borderMedium}` }}>
-            <div style={{ fontSize: 11, fontFamily: fonts.mono, color: palette.textMuted, letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
-              AgentStudy
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#8b5cf6" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="28" height="28" rx="7" fill="url(#navLogoGrad)" />
+                <rect x="8" y="10" width="16" height="13" rx="3" fill="#f0f4ff" />
+                <line x1="16" y1="10" x2="16" y2="6" stroke="#f0f4ff" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="16" cy="5" r="2" fill="#fbbf24" />
+                <circle cx="12.5" cy="16" r="2.2" fill="#1e293b" />
+                <circle cx="19.5" cy="16" r="2.2" fill="#1e293b" />
+                <circle cx="13" cy="15.3" r="0.7" fill="#60a5fa" />
+                <circle cx="20" cy="15.3" r="0.7" fill="#60a5fa" />
+                <rect x="12" y="20" width="8" height="1.5" rx="0.75" fill="#1e293b" />
+                <circle cx="7" cy="16" r="1.5" fill="#f0f4ff" />
+                <circle cx="25" cy="16" r="1.5" fill="#f0f4ff" />
+              </svg>
+              <div style={{ fontSize: 15, fontWeight: 800, background: "linear-gradient(135deg, #f0f0ff 0%, #60a5fa 50%, #a78bfa 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                AgentStudy
+              </div>
             </div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: palette.textPrimary }}>
-              Guía Visual
+            <div style={{ fontSize: 11, color: palette.textMuted, lineHeight: 1.4 }}>
+              Guía de Ingeniería Agéntica
             </div>
           </div>
 

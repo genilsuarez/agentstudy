@@ -4,11 +4,20 @@
 
 html, body, #root {
   min-height: 100%;
-  background: #1e2030;
+  background: #0f1420;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
   color: #ffffff;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: #f0f0ff;
 }
 
 /* Hide scrollbar on nav tabs */
@@ -23,10 +32,21 @@ html, body, #root {
   background: rgba(59,130,246,0.3);
   border-radius: 3px;
 }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59,130,246,0.5);
+}
 
 /* Tags visibility on larger screens */
 @media (min-width: 600px) {
   .header-tag {
     display: inline-block !important;
   }
+}
+
+/* Smooth transitions for interactive elements */
+button {
+  transition: all 0.2s ease;
+}
+button:hover {
+  filter: brightness(1.1);
 }
