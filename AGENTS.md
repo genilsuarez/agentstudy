@@ -13,7 +13,7 @@
 | `English6/` | [genilsuarez/fluentflow](https://github.com/genilsuarez/fluentflow) | React 18 · TypeScript · Vite · Zustand · TanStack Query · Pure CSS/BEM | ✅ Activo |
 | `CapiChef/` | [genilsuarez/capichef](https://github.com/genilsuarez/capichef) | React 18 · Vite · Tailwind · Vitest | ✅ Activo |
 | `CapiCatcher/` | [genilsuarez/capicatcher](https://github.com/genilsuarez/capicatcher) | TypeScript · Vite · Zustand | ✅ Activo |
-| `FlagsQuiz/` | [genilsuarez/flagsquiz](https://github.com/genilsuarez/flagsquiz) | Vanilla JS · Vite · MVC | ✅ Activo |
+| `FlagMaster/` | [genilsuarez/flagmaster](https://github.com/genilsuarez/flagmaster) | Vanilla JS · Vite · MVC | ✅ Activo |
 | `AgentStudy/` | [genilsuarez/agentstudy](https://github.com/genilsuarez/agentstudy) | React 18 · Vite | ✅ Activo |
 
 ---
@@ -33,8 +33,9 @@ Juego educativo para niños 4-10 años. Capybara chef guía a cocinar recetas to
 Juego web donde un capybara atrapa vegetales que caen. Controles mouse/teclado/táctil, sistema de partículas, dificultad progresiva.
 - Live: https://genilsuarez.github.io/capicatcher/
 
-### `FlagsQuiz`
+### `FlagMaster`
 Juego de adivinanza de banderas del mundo. Arquitectura MVC con ES6 modules, Vanilla JS.
+- Live: https://genilsuarez.github.io/flagmaster/
 
 ### `AgentStudy`
 Guía visual interactiva sobre context engineering para agentes de IA. React 18 + Vite.
@@ -63,7 +64,7 @@ Code/
 ├── English6/        → fluentflow (activo)
 ├── CapiChef/        → capichef (activo)
 ├── CapiCatcher/     → capicatcher (activo)
-├── FlagsQuiz/       → flagsquiz (activo)
+├── FlagMaster/      → flagmaster (activo)
 ├── AgentStudy/      → agentstudy (activo)
 ├── English0/        → backup local (subido a gsphome/englishgame0)
 ├── English1/        → backup local (subido a gsphome/englishgame1)
