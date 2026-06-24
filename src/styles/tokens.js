@@ -1,57 +1,59 @@
 /**
- * Design tokens — colores, fuentes y constantes de estilo
+ * Design tokens — unified "Signal" system
+ * Aligned with genil-dev aesthetic: deep navy, azure blue, DM Serif Display + Manrope
  */
 
 export const palette = {
-  blue: "#7ab3ff",
-  green: "#4de89e",
-  amber: "#ffc55a",
-  rose: "#ff7d96",
-  purple: "#c4a8ff",
-  cyan: "#34e4ff",
-  dim: "#b8b8d8",
-  muted: "#e0e0f8",
+  blue: "#4a9eff",
+  green: "#34d399",
+  amber: "#f5b942",
+  rose: "#f87171",
+  purple: "#a78bfa",
+  cyan: "#22d3ee",
+  dim: "#8d99a8",
+  muted: "#cdd6e0",
 
   // Semantic
-  accent: "#60a5fa",
-  accentHover: "#93c5fd",
-  border: "rgba(59,130,246,0.25)",
-  borderLight: "rgba(59,130,246,0.15)",
-  borderMedium: "rgba(59,130,246,0.2)",
-  borderStrong: "rgba(59,130,246,0.3)",
-  surface: "rgba(0,0,0,0.2)",
-  surfaceDeep: "rgba(0,0,0,0.3)",
-  surfaceCard: "rgba(0,0,0,0.4)",
-  textPrimary: "#f3f4f6",
-  textSecondary: "#9ca3af",
-  textMuted: "#6b7280",
-  textDim: "#4b5563",
+  accent: "#4a9eff",
+  accentHover: "#74b5ff",
+  border: "rgba(74, 158, 255, 0.15)",
+  borderLight: "rgba(255, 255, 255, 0.07)",
+  borderMedium: "rgba(74, 158, 255, 0.12)",
+  borderStrong: "rgba(74, 158, 255, 0.25)",
+  surface: "rgba(22, 29, 40, 0.6)",
+  surfaceDeep: "rgba(12, 16, 24, 0.8)",
+  surfaceCard: "#1a2232",
+  textPrimary: "#edf2f7",
+  textSecondary: "#8d99a8",
+  textMuted: "#5c6a7a",
+  textDim: "#3d4a58",
 };
 
 export const tagColors = {
-  skill: { bg: "#1e3a6e", text: "#a0ccff" },
-  cmd: { bg: "#3d3a10", text: "#ffd060" },
-  hook: { bg: "#3d1040", text: "#e8a8ff" },
-  mcp: { bg: "#103d3d", text: "#60f0c0" },
-  tool: { bg: "#3d1010", text: "#ffaaaa" },
+  skill: { bg: "rgba(74, 158, 255, 0.1)", text: "#74b5ff" },
+  cmd: { bg: "rgba(245, 185, 66, 0.1)", text: "#f5b942" },
+  hook: { bg: "rgba(167, 139, 250, 0.1)", text: "#c4b5fd" },
+  mcp: { bg: "rgba(52, 211, 153, 0.1)", text: "#34d399" },
+  tool: { bg: "rgba(248, 113, 113, 0.1)", text: "#fca5a5" },
 };
 
 export const verdictBorders = {
-  blue: "#7ab3ff",
-  green: "#4de89e",
-  amber: "#ffc55a",
-  rose: "#ff7d96",
-  purple: "#c4a8ff",
+  blue: "#4a9eff",
+  green: "#34d399",
+  amber: "#f5b942",
+  rose: "#f87171",
+  purple: "#a78bfa",
 };
 
 export const fonts = {
-  sans: "'Outfit', system-ui, sans-serif",
-  mono: "'JetBrains Mono', monospace",
+  display: "'DM Serif Display', Georgia, serif",
+  sans: "'Manrope', -apple-system, 'Segoe UI', sans-serif",
+  mono: "'JetBrains Mono', 'SF Mono', ui-monospace, monospace",
 };
 
 export const slideDownKeyframes = `
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-6px); }
+  from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
@@ -61,5 +63,9 @@ export const slideDownKeyframes = `
 @keyframes slideIn {
   from { transform: translateX(-100%); }
   to   { transform: translateX(0); }
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 `;

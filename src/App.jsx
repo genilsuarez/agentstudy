@@ -8,6 +8,14 @@ import TokenTaxPage from "./pages/TokenTaxPage";
 import { pages } from "./data/content";
 import { palette, fonts, slideDownKeyframes } from "./styles/tokens";
 
+/* Shared layout constants aligned with genil-dev system */
+const layout = {
+  cardBg: "linear-gradient(145deg, #161d28 0%, #121820 50%, #0c1018 100%)",
+  headerBg: "linear-gradient(135deg, #1a2232 0%, #161d28 50%, #121820 100%)",
+  headerShadow: "0 2px 16px rgba(0,0,0,0.5)",
+  cardShadow: "0 16px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,158,255,0.08)",
+};
+
 function Logo({ size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -51,19 +59,19 @@ export default function App() {
         <div style={{
           width: "100%", maxWidth: 880,
           height: "calc(100vh - 32px)",
-          background: "linear-gradient(145deg, #111827 0%, #0f172a 50%, #0c1222 100%)",
+          background: layout.cardBg,
           border: `1px solid ${palette.border}`,
           borderRadius: 14,
-          boxShadow: "0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(59,130,246,0.08) inset, 0 0 80px rgba(96,165,250,0.03)",
+          boxShadow: layout.cardShadow,
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
 
           {/* Fixed header — never scrolls */}
           <div style={{
             flexShrink: 0,
-            background: "linear-gradient(135deg, #1e3a5f 0%, #1e1b4b 50%, #1a1040 100%)",
+            background: layout.headerBg,
             borderBottom: `1px solid ${palette.borderStrong}`,
-            boxShadow: "0 2px 16px rgba(0,0,0,0.5)",
+            boxShadow: layout.headerShadow,
             padding: "10px 16px",
             display: "flex", alignItems: "center", gap: 10,
           }}>
@@ -80,7 +88,7 @@ export default function App() {
               <h1 style={{
                 fontSize: "clamp(13px, 2.5vw, 18px)", fontWeight: 800, lineHeight: 1.1,
                 letterSpacing: -0.5, margin: 0,
-                background: "linear-gradient(135deg, #f0f0ff 0%, #60a5fa 45%, #a78bfa 100%)",
+                background: "linear-gradient(135deg, #edf2f7 0%, #4a9eff 50%, #a78bfa 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
               }}>{page.label}</h1>
